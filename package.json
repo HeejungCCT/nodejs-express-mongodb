@@ -15,6 +15,7 @@
     "node.js",
     "express",
     "mongoDB",
+    "cors",
     "atlas",
     "mongoose",
     "rest",
