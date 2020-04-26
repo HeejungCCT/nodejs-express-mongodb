@@ -2,8 +2,8 @@ const express = require('express'); // to provide a robust set of features for w
 const app = express();
 const mongoose = require ('mongoose'); // to validate schema, manage relationships among data
 const bodyParser = require ('body-parser'); // to parse text bodies & url encoded request bodies
-const cors = require('cors'); // 
-require('dotenv/config'); // to hide credentails in github etc.
+const cors = require('cors'); // to provide a Connect/Express middleware that can be used to enable CORS with various options
+require('dotenv/config'); // to hide credentails in github 
 
 
 // middlewares
@@ -17,7 +17,7 @@ app.use('/posts', postsRoute);
 
 // routes
 app.get('/', (req, res) =>{
-res.send('Lotus Thai Massage Centre');
+res.send('Lotus Massage Centre');
 });
 
 app.get('/posts', (req, res) =>{

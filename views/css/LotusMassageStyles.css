@@ -1,0 +1,48 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  background-image: url(https://cdn.pixabay.com/photo/2015/01/05/22/28/wellness-589770_960_720.jpg);
+  background-size: cover; 
+  margin-bottom: 60px;
+  background-color: #b4c4c9;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 50px; /* Vertically center the text there */
+  /* background-color: #f3f4f7; */
+  text-align: right;
+  padding: 3rem;
+}
+table, th, td {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-collapse: collapse;
+  border: 1px solid rgb(33, 100, 4);
+  text-align: center;   
+}
+.container {
+     background-color: rgba(255, 255, 255, 0.4); 
+}
+ table {
+     border-collapse: collapse;
+     width:100%;
+}
+ td, th {
+     border: 1px solid #323233;
+     padding: 0.8rem;
+     text-align: left;
+}
+ th {
+     font-weight: bold;
+     font-style: oblique;
+}
+.selected {
+            background-color: #024602;
+            color: #FFF;
+}
