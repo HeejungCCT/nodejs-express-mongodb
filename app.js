@@ -5,7 +5,6 @@ const bodyParser = require ('body-parser'); // to parse text bodies & url encode
 const cors = require('cors'); // to provide a Connect/Express middleware that can be used to enable CORS with various options
 require('dotenv/config'); // to hide credentails in github 
 
-
 // middlewares
 app.use(cors());
 app.use(bodyParser.json());

@@ -2,17 +2,7 @@ const express = require ('express');
 const router = express.Router();
 const Post = require ('../models/Post');
 
-// get back all the posts
-router.get('/', async(req, res) => {
-    try {
-        const posts = await Post.find();
-        res.json(posts);    
-    }catch(err){
-        res.json({message:err});
-    }
-});
-
-// submit a post
+// create a post  
 router.post('/', async (req, res) => {
     const post = new Post({
         item: req.body.item,
@@ -27,7 +17,17 @@ router.post('/', async (req, res) => {
     }
 });
 
-// specific post
+// read/retrieve all posts  
+router.get('/', async(req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json(posts);    
+    }catch(err){
+        res.json({message:err});
+    }
+});
+
+// read/retrieve a specific post by postId
 router.get('/:postId', async (req, res) => {
     try {
         const post = await Post.findById(req.params.postId);
@@ -37,18 +37,20 @@ router.get('/:postId', async (req, res) => {
     }
 });
 
-// delete post
-router.delete('/:postId', async (req, res) => {
+// update a post, with item
+router.patch('/:postId', async (req, res) => {
     try {
-        const removedPost = await Post.remove({_id: req.params.postId});
-        res.json(removedPost);
-    } catch (err) {
-        res.json({ message: err});
-    } 
+        const updatedPost = await Post.updateOne(
+            {_id: req.params.postId},
+            { $set: { item: req.body.item } });
+        res.json(updatedPost);
+    }catch (err) {
+        res.json({ message: err });
+    }
 });
 
-// update a post
-router.patch('/:postId', async (req, res) => {
+// update a post 
+router.put('/:postId', async (req, res) => {
     try {
         const updatedPost = await Post.updateOne(
             {_id: req.params.postId},
@@ -59,6 +61,15 @@ router.patch('/:postId', async (req, res) => {
     }catch (err) {
         res.json({ message: err });
     }
+});
+// delete post
+router.delete('/:postId', async (req, res) => {
+    try {
+        const removedPost = await Post.remove({_id: req.params.postId});
+        res.json(removedPost);
+    } catch (err) {
+        res.json({ message: err});
+    } 
 });
 
 module.exports = router;
