@@ -15,11 +15,11 @@ const postsRoute = require('./routes/posts');
 app.use('/posts', postsRoute);
 
 // routes
-app.get('/', (req, res) =>{
+app.get('/', (_req, res) =>{
 res.send('Lotus Massage Centre');
 });
 
-app.get('/posts', (req, res) =>{
+app.get('/posts', (_req, res) =>{
 res.send('');
 });
 
