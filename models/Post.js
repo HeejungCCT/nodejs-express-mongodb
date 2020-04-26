@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 
 
 const PostSchema = mongoose.Schema({
-    title: {
+    item: {
         type:String,
         required:true
     },
-    description: {
+    session: {
         type: String,
         required: true
     },
-    date: {
-        type: Date,    
-    default: Date.now
+    price: {
+        type: String,    
+        required: true
     }
 });
 
