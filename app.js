@@ -23,10 +23,30 @@ app.get('/posts', (req, res) =>{
 res.send('');
 });
 
-// connect to DB, secure
-mongoose.connect (process.env.DB_CONNECTION, { useNewUrlParser: true },() =>
+// // connect to DB, secure
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true },() =>
 console.log('connectd DB!')
 );
 
+
 // listen to the server
-app.listen(3000);
+  const PORT = process.env.PORT ||3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
+
+
+// database connection, handled by mongoose
+
+// dbConfig.mongoose.connect(dbConfig.url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   .then(() => {
+//     console.log("Connected to the database!");
+//   })
+//   .catch(err => {
+//     console.log("Cannot connect to the database!", err);
+//     process.exit();
+//   });
+

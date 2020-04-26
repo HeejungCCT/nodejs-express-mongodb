@@ -7,3 +7,5 @@ const dbConfig = {};
 dbConfig.mongoose = mongoose;
 dbConfig.url = databaseConfig.url;
 dbConfig.PostSchema = require("./model.js")(mongoose);
+
+module.exports = dbConfig;
