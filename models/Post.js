@@ -1,18 +1,9 @@
+// tell mongoose where to fetch the database credentials from
+const databaseConfig = require("../config/db.config");
+ 
 const mongoose = require('mongoose');
 
-const PostSchema = mongoose.Schema({
-    item: {
-        type:String,
-        required:true
-    },
-    session: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: String,    
-        required: true
-    }
-});
-
-module.exports = mongoose.model('Posts', PostSchema);
+const dbConfig = {};
+dbConfig.mongoose = mongoose;
+dbConfig.url = databaseConfig.url;
+dbConfig.PostSchema = require("./model.js")(mongoose);

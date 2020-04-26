@@ -14,9 +14,9 @@ const postsRoute = require('./routes/posts');
 
 app.use('/posts', postsRoute);
 
-// routes
+// routes >> you need to comment these with the path yu used to test the on Postman
 app.get('/', (req, res) =>{
-res.send('Lotus Massage Centre');
+    res.send('Lotus Massage Centre');
 });
 
 app.get('/posts', (req, res) =>{
